@@ -16,13 +16,14 @@ namespace KionCRM.API.Data
             base.OnModelCreating(modelBuilder);
 
             // Seed usuarios iniciales
+            // admin123 y demo123 hasheados estáticamente con BCrypt
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
                     Id = 1,
                     Name = "Admin User",
                     Email = "admin@kioncrm.com",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin123"),
+                    PasswordHash = "$2a$11$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.",
                     Role = "admin"
                 },
                 new User
@@ -30,7 +31,7 @@ namespace KionCRM.API.Data
                     Id = 2,
                     Name = "Demo User",
                     Email = "demo@kioncrm.com",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("demo123"),
+                    PasswordHash = "$2a$11$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.",
                     Role = "demo"
                 }
             );
